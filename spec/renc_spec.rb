@@ -5,7 +5,12 @@ describe Renc do
     expect(Renc::VERSION).not_to be nil
   end
 
-  it 'does something useful' do
-    expect(false).to eq(true)
+  describe '.enc' do
+    context 'Hash value is String' do
+      xit 'encode value' do
+        encoded = described_class.enc({ a: 1, b: 'abc'}, Encoding::ASCII)
+        expect(encoded[:b].encoding).to eq(Encoding::ASCII)
+      end
+    end
   end
 end
