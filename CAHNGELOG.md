@@ -1,5 +1,5 @@
 # v1.0.0
-- base method change from singleton_method to instance_method.
+- change to instance_method from singleton_method.
 - renc method is implemented.
 - enc method is deprecated.
 - required Ruby version is change to over 2.2.4.
