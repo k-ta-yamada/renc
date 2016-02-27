@@ -9,6 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ['k-ta-yamada']
   spec.email         = ['key.luvless@gmail.com']
 
+  spec.required_ruby_version = '>= 2.2.4'
+
   spec.summary       = 'recurse encoding for Hash and Array.'
   spec.description   = 'recurse encoding for Hash and Array.'
   spec.homepage      = 'https://github.com/k-ta-yamada/renc'
