@@ -1,34 +1,36 @@
 require 'spec_helper'
 
 describe Renc do
-  it 'has a version number' do
-    expect(Renc::VERSION).not_to be nil
+  include described_class
+
+  shared_examples 'example' do |obj|
+    context obj.class do
+      let(:encoding) { Encoding::ASCII }
+      subject { renc(obj, encoding) }
+      it { is_expected.to eq(obj) }
+      it 'all String value is encoded' do
+        expected = subject.is_a?(Hash) ? subject.values : Array(subject)
+        expected.select! { |v| v.is_a?(String) }
+        expect(expected.map(&:encoding)).to all(eq(encoding))
+      end
+    end
   end
 
-  let(:encoding) { Encoding::ASCII }
+  describe '.renc' do
+    # String
+    it_behaves_like 'example', 'abcd'
 
-  describe '.enc' do
-    context 'String value' do
-      it 'encode value' do
-        encoded = described_class.enc('abc', encoding)
-        expect(encoded.encoding).to eq(encoding)
-      end
-    end
+    # Hash
+    it_behaves_like 'example', a: 'a', b: 'b'
+    it_behaves_like 'example', a: 'a', b: 1, c: { ca: 'abc' }
 
-    context 'Hash value is String' do
-      it 'encode value' do
-        encoded = described_class.enc({ a: 1, b: 'abc' }, encoding)
-        expect(encoded[:a]).to eq(1)
-        expect(encoded[:b].encoding).to eq(encoding)
-      end
-    end
+    # Array
+    it_behaves_like 'example', %w(a b c)
+    it_behaves_like 'example', [1, 2, 3, nil, %w(a b c)]
 
-    context 'Array value is String' do
-      it 'encode value' do
-        encoded = described_class.enc([1, 2, 3, :a, 'b'], encoding)
-        expect(encoded.first).to eq(1)
-        expect(encoded.last.encoding).to eq(encoding)
-      end
-    end
+    # Others
+    others = [nil, true, false, :symbol, 1, 1.23, (1..3),
+              Date.new, DateTime.new, Time.new, /regexp/]
+    others.each { |obj| it_behaves_like 'example', obj }
   end
 end

@@ -1,3 +1,9 @@
+[![Gem Version][gem_version-svg]][gem_version]
+[![Build Status][travis-svg]][travis]
+[![Code Climate][codeclimate-svg]][codeclimate]
+[![Test Coverage][codeclimate_cov-svg]][codeclimate_cov]
+[![Inline docs][inch-ci-svg]][inch-ci]
+
 # Renc
 
 Welcome to your new gem!
@@ -69,3 +75,20 @@ and contributors are expected to adhere to the
 
 The gem is available as open source
 under the terms of the [MIT License](http://opensource.org/licenses/MIT).
+
+
+
+[gem_version]: http://badge.fury.io/rb/renc
+[gem_version-svg]: https://badge.fury.io/rb/renc.svg
+
+[travis]: https://travis-ci.org/k-ta-yamada/renc
+[travis-svg]: https://travis-ci.org/k-ta-yamada/renc.svg
+
+[codeclimate]: https://codeclimate.com/github/k-ta-yamada/renc
+[codeclimate-svg]: https://codeclimate.com/github/k-ta-yamada/renc/badges/gpa.svg
+
+[codeclimate_cov]: https://codeclimate.com/github/k-ta-yamada/renc/coverage
+[codeclimate_cov-svg]: https://codeclimate.com/github/k-ta-yamada/renc/badges/coverage.svg
+
+[inch-ci]: http://inch-ci.org/github/k-ta-yamada/renc
+[inch-ci-svg]: http://inch-ci.org/github/k-ta-yamada/renc.svg?branch=master
