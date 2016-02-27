@@ -1,0 +1,14 @@
+inherit_from: .rubocop_todo.yml
+
+AllCops:
+  # Include:
+  #   - Gemfile
+  #   - Rakefile
+  #   - lib/
+  #   - spec/
+  Exclude:
+    - renc.gemspec
+    - vendor/**/*
+
+Style/AsciiComments:
+  Enabled: false
