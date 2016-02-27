@@ -2,7 +2,7 @@ require 'renc/version'
 
 # namespace
 module Renc
-  def self.enc(obj, encoding = Encoding::UTF_8)
+  def renc(obj, encoding = Encoding::UTF_8)
     case obj
     when String then obj.encode(encoding)
     when Hash   then enc_hash(obj, encoding)
@@ -11,16 +11,20 @@ module Renc
     end
   end
 
-  # private
+  extend Gem::Deprecate
+  alias enc renc
+  deprecate :enc, :renc, 2016, 3
 
-  def self.enc_hash(obj, encoding)
+  private
+
+  def enc_hash(obj, encoding)
     obj.each_with_object({}) do |args, h|
       key, val = args
-      h[key] = enc(val, encoding)
+      h[key] = renc(val, encoding)
     end
   end
 
-  def self.enc_array(obj, encoding)
-    obj.map { |val| enc(val, encoding) }
+  def enc_array(obj, encoding)
+    obj.map { |val| renc(val, encoding) }
   end
 end
