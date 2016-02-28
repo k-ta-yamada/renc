@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ['k-ta-yamada']
   spec.email         = ['key.luvless@gmail.com']
 
-  spec.required_ruby_version = '>= 2.2.4'
+  spec.required_ruby_version = '>= 2.0.0'
 
   spec.summary       = 'recurse encoding for Hash and Array.'
   spec.description   = 'recurse encoding for Hash and Array.'
@@ -30,4 +30,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'pry-theme'
   spec.add_development_dependency 'pry-byebug'
   spec.add_development_dependency 'rubocop'
+  spec.add_development_dependency 'awesome_print'
 end
