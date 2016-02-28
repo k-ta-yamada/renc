@@ -30,4 +30,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'pry-theme'
   spec.add_development_dependency 'pry-byebug'
   spec.add_development_dependency 'rubocop'
+  spec.add_development_dependency 'awesome_print'
 end

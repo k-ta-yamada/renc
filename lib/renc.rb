@@ -2,6 +2,10 @@ require 'renc/version'
 
 # namespace
 module Renc
+  # recurse encoding for Hash and Array.
+  # @param obj [Object]
+  # @param encoding [Encoding]
+  # @return [Object]
   def renc(obj, encoding = Encoding::UTF_8)
     case obj
     when String then obj.encode(encoding)
@@ -11,12 +15,14 @@ module Renc
     end
   end
 
-  extend Gem::Deprecate
+  # @see #renc
   alias enc renc
+  extend Gem::Deprecate
   deprecate :enc, :renc, 2016, 3
 
   private
 
+  # recurse encoding for Hash values of String.
   def enc_hash(obj, encoding)
     obj.each_with_object({}) do |args, h|
       key, val = args
@@ -24,6 +30,7 @@ module Renc
     end
   end
 
+  # recurse encoding for Array values of String.
   def enc_array(obj, encoding)
     obj.map { |val| renc(val, encoding) }
   end
