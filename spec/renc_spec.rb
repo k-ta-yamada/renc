@@ -3,6 +3,24 @@ require 'spec_helper'
 describe Renc do
   include described_class
 
+  context 'benchmark' do
+    require 'benchmark'
+    let(:encoding) { Encoding::Windows_31J }
+    let(:to) { 100_000 }
+    let(:key) { (1..to).map { |i| "key_#{format('%05d', i)}" } }
+    let(:val) { Array.new(to) { 'abc' } }
+    let(:obj) { key.zip(val).to_h }
+
+    context 'Hash' do
+      subject { Benchmark.realtime { renc(obj, encoding) } }
+      it { is_expected.to be < 1 }
+    end
+    context 'Array' do
+      subject { Benchmark.realtime { renc(val, encoding) } }
+      it { is_expected.to be < 1 }
+    end
+  end
+
   shared_examples 'example' do |obj|
     context obj.class do
       let(:encoding) { Encoding::Windows_31J }

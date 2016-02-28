@@ -8,3 +8,8 @@ SimpleCov.start
 
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 require 'renc'
+
+require 'pry'
+require 'pry-doc'
+require 'pry-theme'
+require 'awesome_print'
