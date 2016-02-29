@@ -24,13 +24,15 @@ describe Renc do
   shared_examples 'example' do |obj|
     context obj.class do
       let(:encoding) { Encoding::Windows_31J }
-      subject { renc(obj, encoding) }
+      subject { obj.respond_to?(:renc) ? obj.renc(encoding) : obj }
       it { is_expected.to eq(obj) }
       it 'all String value is encoded' do
-        expected = subject.is_a?(Hash) ? subject.values : [subject]
-        expected.flatten!
-        expected.select! { |v| v.is_a?(String) }
-        expect(expected.map(&:encoding)).to all(eq(encoding))
+        if obj.respond_to?(:renc)
+          expected = subject.is_a?(Hash) ? subject.values : [subject]
+          expected.flatten!
+          expected.select! { |v| v.is_a?(String) }
+          expect(expected.map(&:encoding)).to all(eq(encoding))
+        end
       end
     end
   end

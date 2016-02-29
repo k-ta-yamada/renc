@@ -1,3 +1,7 @@
+# v1.1.0
+- [issue #4](https://github.com/k-ta-yamada/tee_logger/issues/4)
+  #renc for Hash and Array
+
 # v1.0.1
 - required Ruby version is change to over 2.0.0.
   - gemspec: `spec.required_ruby_version = '>= 2.0.0'`
