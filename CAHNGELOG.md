@@ -1,3 +1,8 @@
+# v1.0.1
+- required Ruby version is change to over 2.0.0.
+  - gemspec: `spec.required_ruby_version = '>= 2.0.0'`
+    - maybe, be able to run on `version >= 2.0.0`.
+
 # v1.0.0
 - change to instance_method from singleton_method.
 - renc method is implemented.
