@@ -20,19 +20,19 @@ require 'renc/version'
 #   # or context `main`
 #   extend Renc
 module Renc
+  TARGET_CLASS = [String, Array, Hash].freeze
   # include #renc method
-  [String, Hash, Array].each { |klass| klass.include self }
+  TARGET_CLASS.each { |klass| klass.include self }
 
   # recurse encoding for Hash and Array.
-  # @param obj [Object]
   # @param encoding [Encoding]
+  # @param obj [Object]
   # @return [Object]
   def renc(encoding = Encoding::UTF_8, obj = self)
-    # binding.pry
     case obj
     when String then obj.encode(encoding)
-    when Hash   then renc_hash(obj, encoding)
     when Array  then renc_array(obj, encoding)
+    when Hash   then renc_hash(obj, encoding)
     else             obj
     end
   end
@@ -49,7 +49,6 @@ module Renc
     obj.each_with_object({}) do |args, h|
       key, val = args
       h[key] = renc(encoding, val)
-      # h[key] = val.renc(encoding)
     end
   end
 
