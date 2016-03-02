@@ -37,11 +37,6 @@ module Renc
     end
   end
 
-  # @see #renc
-  alias enc renc
-  extend Gem::Deprecate
-  deprecate :enc, :renc, 2016, 3
-
   private
 
   # recurse encoding for Hash values of String.

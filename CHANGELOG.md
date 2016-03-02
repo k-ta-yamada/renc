@@ -1,3 +1,6 @@
+# v1.2.0
+- remove `Renc#enc` method
+
 # v1.1.0
 - [issue #4](https://github.com/k-ta-yamada/tee_logger/issues/4)
   #renc for Hash and Array
