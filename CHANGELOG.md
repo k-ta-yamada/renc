@@ -1,3 +1,7 @@
+# v1.3.0
+- [issue #7](https://github.com/k-ta-yamada/tee_logger/issues/7)
+  configuration default encoding
+
 # v1.2.0
 - remove `Renc#enc` method
 
