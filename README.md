@@ -29,17 +29,38 @@ Or install it yourself as:
 ```ruby
 require 'renc'
 
+# String
 str_ascii = 'hello renc!'.encode(Encoding::ASCII)
-str_ascii.encoding # => #<Encoding::US-ASCII>
-Renc.enc(str_ascii, Encoding::UTF_8).encoding # => #<Encoding::UTF-8>
+str_ascii.encoding          # => #<Encoding::US-ASCII>
+str_ascii.renc.encoding     # => #<Encoding::UTF-8>
+str_ascii == str_ascii.renc # => true
 
-hash_val = { a: str_ascii }
-hash_val[:a].encoding # => Encoding::ASCII
-Renc.enc(hash_val, Encoding::UTF_8)[:a].encoding # => #<Encoding::UTF-8>
-
+# Array
 array_val = [str_ascii]
-array_val.first.encoding # => Encoding::ASCII
-Renc.enc(array_val, Encoding::UTF_8).first.encoding # => #<Encoding::UTF-8>
+array_val.first.encoding      # => #<Encoding::US-ASCII>
+array_val.renc.first.encoding # => #<Encoding::UTF-8>
+array_val.renc == array_val   # => ture
+
+# Hash
+hash_val = { a: str_ascii }
+hash_val[:a].encoding      # => #<Encoding::US-ASCII>
+hash_val.renc[:a].encoding # => #<Encoding::UTF-8>
+hash_val.renc == hash_val  # => true
+
+# nested Hash, Array, and others
+nested = { a: 'a', b: { ba: 1, bb: ['bb0', :bb2, 3]} }
+nested.renc == nested # => true
+
+# @ref ./spec/spec_helper.rb
+class Hash
+  def values_in_nested_hash
+    map { |_k, v| v.is_a?(Hash) ? v.values_in_nested_hash : v }
+  end
+end
+
+encoded_string_values =
+  nested.values_in_nested_hash.flatten.select { |v| v.is_a?(String) }
+encoded_string_values.all? { |v| v.encoding == Encoding::UTF_8 } # => true
 ```
 
 ## Development
