@@ -12,7 +12,6 @@ module Renc
   TARGET_CLASS = [String, Array, Hash].freeze
   TARGET_CLASS.each { |klass| klass.include self }
 
-
   class << self
     # return @default_encoding
     # @return [Encoding] @default_encoding
