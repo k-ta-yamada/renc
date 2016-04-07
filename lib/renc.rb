@@ -3,7 +3,7 @@ require 'renc/version'
 # recurse encoding for Hash and Array.
 module Renc
   # raise unless encoding.is_a?(Encoding)
-  class ConfigureError < StandardError; end
+class ConfigureError < StandardError; end
 
   # this gem's default configured encoding
   DEFAULT_ENCODING = Encoding::UTF_8
@@ -11,6 +11,7 @@ module Renc
   # for include #renc method
   TARGET_CLASS = [String, Array, Hash].freeze
   TARGET_CLASS.each { |klass| klass.include self }
+
 
   class << self
     # return @default_encoding
