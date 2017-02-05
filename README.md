@@ -52,7 +52,7 @@ hash_val.renc == hash_val  # => true
 ```
 
 ### Nested Hash, Array, and others
-> @ref [./spec/spec_helper.rb](https://github.com/k-ta-yamada/renc/blob/feature/issue7/spec/spec_helper.rb#L18)
+> @ref [./spec/spec_helper.rb](https://github.com/k-ta-yamada/renc/blob/master/spec/spec_helper.rb#L18)
 
 ```ruby
 # @ref ./spec/spec_helper.rb#L18
