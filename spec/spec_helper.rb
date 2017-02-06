@@ -20,3 +20,11 @@ class Hash
     map { |_k, v| v.is_a?(Hash) ? v.values_in_nested_hash : v }
   end
 end
+
+class Array
+  if RUBY_VERSION <= "2.0.0"
+    def to_h
+      map { |k, v| r = {}; r[k] = v; }
+    end
+  end
+end
