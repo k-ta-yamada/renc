@@ -1,12 +1,16 @@
+# v1.3.1
+- [issue #14](https://github.com/k-ta-yamada/renc/issues/14)
+  String.include is NoMethodError on Ruby 2.0.0
+
 # v1.3.0
-- [issue #7](https://github.com/k-ta-yamada/tee_logger/issues/7)
+- [issue #7](https://github.com/k-ta-yamada/renc/issues/7)
   configuration default encoding
 
 # v1.2.0
 - remove `Renc#enc` method
 
 # v1.1.0
-- [issue #4](https://github.com/k-ta-yamada/tee_logger/issues/4)
+- [issue #4](https://github.com/k-ta-yamada/renc/issues/4)
   #renc for Hash and Array
 
 # v1.0.1
