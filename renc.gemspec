@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ['k-ta-yamada']
   spec.email         = ['key.luvless@gmail.com']
 
-  spec.required_ruby_version = '>= 2.0.0'
+  spec.required_ruby_version = '>= 2.1.0'
 
   spec.summary       = 'recurse encoding for Hash and Array.'
   spec.description   = 'recurse encoding for Hash and Array.'
