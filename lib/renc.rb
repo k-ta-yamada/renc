@@ -10,7 +10,7 @@ module Renc
 
   # for include #renc method
   TARGET_CLASS = [String, Array, Hash].freeze
-  TARGET_CLASS.each { |klass| klass.include self }
+  TARGET_CLASS.each { |klass| klass.send(:include, self) }
 
   class << self
     # return @default_encoding
