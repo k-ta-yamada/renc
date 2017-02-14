@@ -29,9 +29,12 @@ class Hash
 end
 
 class Array
-  if RUBY_VERSION <= "2.0.0"
+  if RUBY_VERSION <= '2.0.0'
     def to_h
-      map { |k, v| r = {}; r[k] = v; }
+      map do |k, v|
+        r = {}
+        r[k] = v
+      end
     end
   end
 end

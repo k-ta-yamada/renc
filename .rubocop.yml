@@ -12,3 +12,11 @@ AllCops:
 
 Style/AsciiComments:
   Enabled: false
+
+Metrics/BlockLength:
+  Exclude:
+    - spec/**/*
+
+Metrics/LineLength:
+  Exclude:
+    - spec/**/*
