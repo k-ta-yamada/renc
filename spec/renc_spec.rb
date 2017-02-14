@@ -70,6 +70,19 @@ describe Renc do
       it_behaves_like 'all_string_val_is_encoded', 3
     end
 
+    xcontext Encoding::UndefinedConversionError do
+      let(:obj) { 'abc🐘def' }
+      it { is_expected.to eq('abc?def') }
+
+      context 'raise erroo' do
+        before { Renc.undef = nil }
+        subject do
+          proc { obj.renc(encoding) }
+        end
+        it { is_expected.to raise_error(Encoding::UndefinedConversionError) }
+      end
+    end
+
     others = [nil, true, false, :symbol, 1, 1.23, (1..3),
               Date.new, DateTime.new, Time.new, /regexp/]
     others.each do |obj|
