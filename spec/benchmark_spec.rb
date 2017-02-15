@@ -12,12 +12,12 @@ describe Renc do
     let(:obj) { key.zip(val).to_h }
 
     context 'Hash' do
-      subject { Benchmark.realtime { renc(obj, encoding) } }
+      subject { Benchmark.realtime { obj.renc(encoding) } }
       it { is_expected.to be < 1 }
     end
 
     context 'Array' do
-      subject { Benchmark.realtime { renc(val, encoding) } }
+      subject { Benchmark.realtime { val.renc(encoding) } }
       it { is_expected.to be < 1 }
     end
   end
