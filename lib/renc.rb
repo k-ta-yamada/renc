@@ -1,6 +1,6 @@
 require 'renc/version'
 
-# recurse encoding for Hash and Array.
+# recursive encode for Hash and Array.
 # @example
 #   require 'renc'
 #
@@ -56,7 +56,7 @@ module Renc
     end
   end
 
-  # recurse encoding for Hash and Array.
+  # recursive encode for Hash and Array.
   # @example
   #   # for example
   #   default_src_encoding # => #<Encoding:UTF-8>
@@ -99,14 +99,14 @@ module Renc
     end
   end
 
-  # recurse encoding for Hash values of String.
+  # recursive encode for Hash values of String.
   def renc_hash(obj, encoding, options)
     obj.each_with_object({}) do |(key, val), h|
       h[key] = renc_internal(val, encoding, options)
     end
   end
 
-  # recurse encoding for Array values of String.
+  # recursive encode for Array values of String.
   def renc_array(obj, encoding, options)
     obj.map { |val| renc_internal(val, encoding, options) }
   end

@@ -11,8 +11,8 @@ Gem::Specification.new do |spec|
 
   spec.required_ruby_version = '>= 2.0.0'
 
-  spec.summary       = 'recurse encoding for Hash and Array.'
-  spec.description   = 'recurse encoding for Hash and Array.'
+  spec.summary       = 'recursive encode for Hash and Array.'
+  spec.description   = 'recursive encode for Hash and Array.'
   spec.homepage      = 'https://github.com/k-ta-yamada/renc'
   spec.license       = 'MIT'
 

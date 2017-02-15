@@ -6,7 +6,7 @@
 
 # Renc
 
-recurse encoding for Hash and Array.
+recursive encode for Hash and Array.
 
 
 ## Installation
