@@ -8,6 +8,7 @@
 
 recurse encoding for Hash and Array.
 
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -23,6 +24,7 @@ And then execute:
 Or install it yourself as:
 
     $ gem install renc
+
 
 ## Usage
 
@@ -48,13 +50,25 @@ hash_val = { a: str_ascii }
 hash_val[:a].encoding      # => #<Encoding::US-ASCII>
 hash_val.renc[:a].encoding # => #<Encoding::UTF-8>
 hash_val.renc == hash_val  # => true
-
 ```
 
 ### Nested Hash, Array, and others
 > @ref [./spec/spec_helper.rb](https://github.com/k-ta-yamada/renc/blob/master/spec/spec_helper.rb#L18)
 
 ```ruby
+nested = {
+  a: 'a', # encoding target1
+  b: {
+    ba: 1,
+    bb: [
+      'bb0', # encoding target2
+      :bb2,
+      3
+    ]
+  }
+}
+nested.renc == nested # => true
+
 # @ref ./spec/spec_helper.rb#L18
 class Hash
   def values_in_nested_hash
@@ -62,37 +76,44 @@ class Hash
   end
 end
 
-nested = { a: 'a',           # encoding target1
-           b: { ba: 1,
-                bb: [
-                      'bb0', # encoding target2
-                      :bb2,
-                      3
-                    ]
-              }
-         }
-nested.renc == nested # => true
-
-encoded_string_values = nested.values_in_nested_hash
-encoded_string_values.flatten!
+encoded_string_values = nested.values_in_nested_hash # => ["a", [1, ["bb0", :bb2, 3]]]
+encoded_string_values.flatten! # => ["a", 1, "bb0", :bb2, 3]
 encoded_string_values.select! { |v| v.is_a?(String) } # => ["a", "bb0"]
 encoded_string_values.all? { |v| v.encoding == Encoding::UTF_8 } # => true
 ```
 
 ### Configuration
 
+#### Renc.default_encoding
+
 ```ruby
 # default configure encoding is utf-8
 Renc.default_encoding # => #<Encoding::UTF-8>
 'test'.renc.encoding  # => #<Encoding::UTF-8>
 
-# if you want to change to sjis
-Renc.default_encoding = Encoding::Windows_31J
-'test'.renc.encoding  # => #<Encoding::Windows-31J>
+# if you want to change to ascii
+Renc.default_encoding = Encoding::ASCII
+'test'.renc.encoding  # => #<Encoding::ASCII>
 
 # change temporaly
 'test'.renc(Encoding::ASCII).encoding # => #<Encoding:US-ASCII>
 ```
+
+#### Renc.default_options
+
+```ruby
+# default configure options is { undef: :replace }
+Renc.default_options # => { undef: :replace }
+'🐘'.renc  # => '?'
+
+# if you want to change to ascii
+Renc.default_options = { undef: nil }
+'🐘'.renc  # => Encoding::UndefinedConversionError: U+1F418 from UTF-8 to US-ASCII
+
+# change temporaly
+'🐘'.renc(Encoding::ASCII, undef: nil).encoding # => Encoding::UndefinedConversionError: U+1F418 from UTF-8 to US-ASCII
+```
+
 
 ## Development
 
@@ -107,6 +128,7 @@ and then run `bundle exec rake release`,
 which will create a git tag for the version,
 push git commits and tags,
 and push the `.gem` file to [rubygems.org](https://rubygems.org).
+
 
 ## Contributing
 
