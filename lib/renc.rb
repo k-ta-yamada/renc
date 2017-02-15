@@ -13,8 +13,8 @@ module Renc
   TARGET_CLASS.each { |klass| klass.send(:include, self) }
 
   # this gem's default configured encoding
-  # @see Encoding
-  DEFAULT_ENCODING = Encoding::UTF_8
+  # @see Encoding.default_external
+  DEFAULT_ENCODING = Encoding.default_external
 
   # this gem's default options for String#encode
   # @see String#encode
