@@ -87,7 +87,8 @@ encoded_string_values.all? { |v| v.encoding == Encoding::UTF_8 } # => true
 #### Renc.default_encoding
 
 ```ruby
-# default configure encoding is utf-8
+# default configure encoding is Encoding.default_external
+Encoding.default_external # => #<Encoding::UTF-8>
 Renc.default_encoding # => #<Encoding::UTF-8>
 'test'.renc.encoding  # => #<Encoding::UTF-8>
 
