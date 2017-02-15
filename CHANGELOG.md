@@ -1,3 +1,12 @@
+# v2.0.0
+- [issue #10](https://github.com/k-ta-yamada/renc/issues/10)
+  Changing default_encoding by os #10
+  - change default encoding is `Encoding.default_external`
+- [issue #18](https://github.com/k-ta-yamada/renc/issues/18)
+  Encoding::UndefinedConversionError #18
+  - change `#renc`'s arguments is change.
+    #renc(encoding, `obj`) => #renc(encoding, `options`)
+
 # v1.3.1
 - [issue #14](https://github.com/k-ta-yamada/renc/issues/14)
   String.include is NoMethodError on Ruby 2.0.0
