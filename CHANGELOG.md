@@ -1,3 +1,7 @@
+# v2.1.0
+- [issue #21](https://github.com/k-ta-yamada/renc/issues/21)
+  change class structure; Separate Configuration #21
+
 # v2.0.0
 - [issue #10](https://github.com/k-ta-yamada/renc/issues/10)
   Changing default_encoding by os #10
