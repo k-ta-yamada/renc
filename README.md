@@ -52,7 +52,7 @@ hash_val.renc[:a].encoding # => #<Encoding::UTF-8>
 hash_val.renc == hash_val  # => true
 ```
 
-### Nested Hash, Array, and others
+### Nested Hash and Array.
 > @ref [./spec/spec_helper.rb](https://github.com/k-ta-yamada/renc/blob/master/spec/spec_helper.rb#L18)
 
 ```ruby
@@ -107,7 +107,7 @@ Renc.default_encoding = Encoding::ASCII
 Renc.default_options # => { undef: :replace }
 '🐘'.renc  # => '?'
 
-# if you want to change to ascii
+# if you want to change to { undef: nil }
 Renc.default_options = { undef: nil }
 '🐘'.renc  # => Encoding::UndefinedConversionError: U+1F418 from UTF-8 to US-ASCII
 
