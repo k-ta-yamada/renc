@@ -44,29 +44,30 @@ module Renc
     raise TypeError, ERR_MESSAGE_ENCODING unless encoding.is_a?(Encoding)
     raise TypeError, ERR_MESSAGE_OPTIONS unless options.is_a?(Hash)
 
-    renc_internal(self, encoding, options)
+    @encoding = encoding
+    @options  = options
+
+    _renc(self)
   end
 
   private
 
-  def renc_internal(obj, encoding, options)
+  def _renc(obj)
     case obj
-    when Hash   then renc_hash(obj, encoding, options)
-    when Array  then renc_array(obj, encoding, options)
-    when String then obj.encode(encoding, options)
+    when Hash   then _hash(obj)
+    when Array  then _array(obj)
+    when String then obj.encode(@encoding, @options)
     else obj
     end
   end
 
   # recursive encode for Hash values of String.
-  def renc_hash(obj, encoding, options)
-    obj.each_with_object({}) do |(key, val), h|
-      h[key] = renc_internal(val, encoding, options)
-    end
+  def _hash(obj)
+    obj.each_with_object({}) { |(k, v), h| h[k] = _renc(v) }
   end
 
   # recursive encode for Array values of String.
-  def renc_array(obj, encoding, options)
-    obj.map { |val| renc_internal(val, encoding, options) }
+  def _array(obj)
+    obj.map { |v| _renc(v) }
   end
 end
