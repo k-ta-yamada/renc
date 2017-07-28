@@ -12,7 +12,7 @@ module Renc
   extend Configuration
 
   # for include #renc method
-  TARGET_CLASS = [String, Array, Hash].freeze
+  TARGET_CLASS = [String, Array, Hash, Struct].freeze
   TARGET_CLASS.each { |klass| klass.send(:include, self) }
 
   # recursive encode for Hash and Array.
@@ -54,9 +54,10 @@ module Renc
 
   def _renc(obj)
     case obj
+    when String then obj.encode(@encoding, @options)
     when Hash   then _hash(obj)
     when Array  then _array(obj)
-    when String then obj.encode(@encoding, @options)
+    when Struct then _struct(obj)
     else obj
     end
   end
@@ -69,5 +70,10 @@ module Renc
   # recursive encode for Array values of String.
   def _array(obj)
     obj.map { |v| _renc(v) }
+  end
+
+  # recursive encode for Hash values of Struct.
+  def _struct(obj)
+    obj.class.new(*_renc(obj.to_h).values)
   end
 end

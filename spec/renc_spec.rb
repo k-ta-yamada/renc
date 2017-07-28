@@ -10,16 +10,45 @@ describe Renc do
       it_behaves_like 'all_string_val_is_encoded'
     end
 
-    context Array do
-      let(:obj) { ['a', 'b', 1, 2, ['aa', 'bb', 11, 22]] }
+    context Hash do
+      let(:obj) { { a: 'a', b: 123, c: :c } }
       it_behaves_like 'return_same_value'
-      it_behaves_like 'all_string_val_is_encoded', 4
+      it_behaves_like 'return_same_class'
+      it_behaves_like 'all_string_val_is_encoded', 1
     end
 
-    context Hash do
-      let(:obj) { { a: 'a', b: { ba: 123, bb: 'abc', bc: { bca: 'a' } } } }
+    context Array do
+      let(:obj) { %w[a b c] }
       it_behaves_like 'return_same_value'
+      it_behaves_like 'return_same_class'
       it_behaves_like 'all_string_val_is_encoded', 3
+    end
+
+    context Struct do
+      let(:obj) { TestStruct.new('a', 'b', 'c') }
+      it_behaves_like 'return_same_value'
+      it_behaves_like 'return_same_class'
+      it_behaves_like 'all_string_val_is_encoded', 3
+    end
+
+    context 'nested_object' do
+      let(:obj) do
+        {
+          a: 'a',
+          b: {
+            ba: 123,
+            bb: 'bb',
+            bc: {
+              bca: 'bca',
+              bcb: ['bcb', { bcba: 'bcba', bcbb: 123 }]
+            }
+          },
+          c: TestStruct.new('ca', [123, { cb: 'cb' }], cc: 'cc')
+        }
+      end
+      it_behaves_like 'return_same_value'
+      it_behaves_like 'return_same_class'
+      it_behaves_like 'all_string_val_is_encoded', 8
     end
 
     context 'arguments' do

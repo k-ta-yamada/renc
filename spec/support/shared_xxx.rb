@@ -11,13 +11,19 @@ shared_examples 'return_same_value' do
   it { is_expected.to eq(obj) }
 end
 
+shared_examples 'return_same_class' do
+  subject { obj.renc.class }
+  it { is_expected.to eq(obj.class) }
+end
+
 shared_examples 'all_string_val_is_encoded' do |size|
   subject(:encoded_vals) do
     expected = case base_subject
-               when Array  then base_subject.flatten
-               when Hash   then base_subject.values_in_nested_hash.flatten
+               when Array  then base_subject.values_in_nested_hash
+               when Hash   then base_subject.values_in_nested_hash
+               when Struct then base_subject.values_in_nested_hash
                else             [base_subject]
-               end
+               end.flatten
     expected.select! { |v| v.is_a?(String) }
     expected.map!(&:encoding)
   end
