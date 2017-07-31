@@ -41,8 +41,8 @@ module Renc
   # @see .default_encoding
   # @see .default_options
   def renc(encoding = Renc.default_encoding, options = Renc.default_options)
-    raise TypeError unless encoding.is_a?(Encoding)
-    raise TypeError unless options.is_a?(Hash)
+    raise TypeError, ERR_MESSAGE_ENCODING unless encoding.is_a?(Encoding)
+    raise TypeError, ERR_MESSAGE_OPTIONS unless options.is_a?(Hash)
 
     renc_internal(self, encoding, options)
   end
