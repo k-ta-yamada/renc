@@ -18,7 +18,7 @@ module Renc
 
     # configure default encoding
     # @example
-    #   Renc.default_encoding = 1 # => Renc::ConfigureError
+    #   Renc.default_encoding = 1 # => TypeError
     #   Renc.default_encoding = Encoding::ASCII
     # @param encoding [Encoding]
     def default_encoding=(encoding)
@@ -35,7 +35,7 @@ module Renc
 
     # configure default options
     # @example
-    #   Renc.default_options = 1 # => Renc::ConfigureError
+    #   Renc.default_options = 1 # => TypeError
     #   Renc.default_options = { undef: nil }
     # @param options [Hash]
     def default_options=(options)
