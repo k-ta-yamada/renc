@@ -9,6 +9,7 @@ AllCops:
   Exclude:
     - renc.gemspec
     - vendor/**/*
+    - bin/**/*
 
 Style/AsciiComments:
   Enabled: false

@@ -30,11 +30,15 @@ end
 # @ref http://stackoverflow.com/questions/21725218/clear-all-values-in-nested-ruby-hash
 class Hash
   def values_in_nested_hash
-    map { |_k, v| v.is_a?(Hash) ? v.values_in_nested_hash : v }
+    map { |_, v| v.respond_to?(:values_in_nested_hash) ? v.values_in_nested_hash : v }
   end
 end
 
 class Array
+  def values_in_nested_hash
+    map { |v| v.respond_to?(:values_in_nested_hash) ? v.values_in_nested_hash : v }
+  end
+
   if RUBY_VERSION <= '2.0.0'
     def to_h
       map do |k, v|
@@ -44,3 +48,11 @@ class Array
     end
   end
 end
+
+class Struct
+  def values_in_nested_hash
+    map { |v| v.respond_to?(:values_in_nested_hash) ? v.values_in_nested_hash : v }
+  end
+end
+
+TestStruct = Struct.new(:a, :b, :c)
