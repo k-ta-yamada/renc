@@ -1,4 +1,7 @@
 module Renc
+  ERR_MESSAGE_ENCODING = 'argument `encoding` is not a Encoding Class'.freeze
+  ERR_MESSAGE_OPTIONS  = 'argument `options` is not a Hash Class'.freeze
+
   # namespace
   module Configuration
     # this gem's default configured encoding
@@ -22,7 +25,7 @@ module Renc
     #   Renc.default_encoding = Encoding::ASCII
     # @param encoding [Encoding]
     def default_encoding=(encoding)
-      raise TypeError unless encoding.is_a?(Encoding)
+      raise TypeError, ERR_MESSAGE_ENCODING unless encoding.is_a?(Encoding)
       @default_encoding = encoding
     end
 
@@ -39,7 +42,7 @@ module Renc
     #   Renc.default_options = { undef: nil }
     # @param options [Hash]
     def default_options=(options)
-      raise TypeError unless options.is_a?(Hash)
+      raise TypeError, ERR_MESSAGE_OPTIONS unless options.is_a?(Hash)
       @default_options = options
     end
   end

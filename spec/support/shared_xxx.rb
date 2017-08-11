@@ -1,6 +1,8 @@
 shared_context 'shared_context' do
   let(:default_encoding_val) { Encoding::ASCII }
-  let(:default_options_val) { { undef: nil } }
+  let(:default_options_val)  { { undef: nil } }
+  let(:err_message_encoding) { 'argument `encoding` is not a Encoding Class' }
+  let(:err_message_options)  { 'argument `options` is not a Hash Class' }
 
   subject(:base_subject) { obj.renc }
 end

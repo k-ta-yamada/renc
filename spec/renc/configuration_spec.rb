@@ -18,7 +18,7 @@ describe Renc::Configuration do
       subject do
         proc { self.default_encoding = default_options_val }
       end
-      it { is_expected.to raise_error(TypeError) }
+      it { is_expected.to raise_error(TypeError, err_message_encoding) }
     end
   end
 
@@ -36,7 +36,7 @@ describe Renc::Configuration do
       subject do
         proc { self.default_options = default_options_val }
       end
-      it { is_expected.to raise_error(TypeError) }
+      it { is_expected.to raise_error(TypeError, err_message_options) }
     end
   end
 end

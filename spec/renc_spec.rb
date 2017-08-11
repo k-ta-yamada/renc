@@ -26,7 +26,7 @@ describe Renc do
       context 'encoding' do
         context 'is not an Encoding' do
           subject { proc { ''.renc(1) } }
-          it { is_expected.to raise_error(TypeError) }
+          it { is_expected.to raise_error(TypeError, err_message_encoding) }
         end
 
         context 'is configured' do
@@ -40,7 +40,7 @@ describe Renc do
       context 'options' do
         context 'are not a Hash' do
           subject { proc { ''.renc(default_encoding_val, 1) } }
-          it { is_expected.to raise_error(TypeError) }
+          it { is_expected.to raise_error(TypeError, err_message_options) }
         end
 
         context 'are configured' do
