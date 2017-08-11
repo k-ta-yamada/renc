@@ -1,3 +1,12 @@
+# v2.2.0
+2017-08-11 JST
+- [issue #25](https://github.com/k-ta-yamada/renc/issues/25)
+  [add] Add target Class Struct #25
+- [issue #26](https://github.com/k-ta-yamada/renc/issues/26)
+  [mod] Add error message details #26
+- [issue #23](https://github.com/k-ta-yamada/renc/issues/23)
+  [clean] Renc::Configuration.default_xxx='s comment is wrong #23
+
 # v2.1.0
 - [issue #21](https://github.com/k-ta-yamada/renc/issues/21)
   change class structure; Separate Configuration #21
