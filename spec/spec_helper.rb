@@ -10,7 +10,8 @@ $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 require 'renc'
 
 require 'pry'
-require 'pry-doc'
+# require 'pry-doc' # Failed, saying: ruby/2.5.0 isn't supported by this pry-doc version
+# require 'pry-doc'
 require 'pry-theme'
 require 'awesome_print'
 
