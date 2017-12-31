@@ -19,7 +19,7 @@ describe Renc do
 
     # Evaluate the target object because it takes time to generate
     before { target_object.size }
-    subject { Benchmark.realtime { target_object.renc } }
+    subject { p Benchmark.realtime { target_object.renc } }
     it { is_expected.to be < performance_expectation }
   end
 
