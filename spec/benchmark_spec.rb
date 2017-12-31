@@ -4,7 +4,7 @@ require 'benchmark'
 describe Renc do
   include described_class
 
-  let(:size) { 100_000 }
+  let(:size) { 10_000 }
   let(:key) { (1..size).map { |i| "key_#{format('%06d', i)}" } }
   let(:hash) { key.zip(array).to_h }
   let(:array) { Array.new(size) { 'abc' } }
