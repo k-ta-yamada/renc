@@ -6,6 +6,8 @@
 
 # Renc
 
+test
+
 recursive encode for Hash and Array.
 
 
