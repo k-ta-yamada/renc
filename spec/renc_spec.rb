@@ -90,7 +90,7 @@ describe Renc do
             end
           end
         end
-      end # context 'options'
-    end # context 'arguments'
+      end
+    end
   end
 end

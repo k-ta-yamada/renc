@@ -12,8 +12,8 @@ describe Renc do
 
   shared_examples 'less_than' do |performance_expectation, type|
     let(:target_object) do
-      { in_hash:   hash,
-        in_array:  array,
+      { in_hash: hash,
+        in_array: array,
         in_struct: struct }[type]
     end
 

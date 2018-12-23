@@ -26,6 +26,7 @@ module Renc
     # @param encoding [Encoding]
     def default_encoding=(encoding)
       raise TypeError, ERR_MESSAGE_ENCODING unless encoding.is_a?(Encoding)
+
       @default_encoding = encoding
     end
 
@@ -43,6 +44,7 @@ module Renc
     # @param options [Hash]
     def default_options=(options)
       raise TypeError, ERR_MESSAGE_OPTIONS unless options.is_a?(Hash)
+
       @default_options = options
     end
   end
