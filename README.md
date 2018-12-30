@@ -1,8 +1,9 @@
 [![Gem Version][gem_version-svg]][gem_version]
 [![Build Status][travis-svg]][travis]
+[![Downloads][downloads-svg]][gem_version]
+[![Inline docs][inch-ci-svg]][inch-ci]
 [![Code Climate][codeclimate-svg]][codeclimate]
 [![Test Coverage][codeclimate_cov-svg]][codeclimate_cov]
-[![Inline docs][inch-ci-svg]][inch-ci]
 
 # Renc
 
@@ -158,3 +159,4 @@ under the terms of the [MIT License](https://opensource.org/licenses/MIT).
 [codeclimate_cov-svg]: https://codeclimate.com/github/k-ta-yamada/renc/badges/coverage.svg
 [inch-ci]: https://inch-ci.org/github/k-ta-yamada/renc
 [inch-ci-svg]: https://inch-ci.org/github/k-ta-yamada/renc.svg?branch=master
+[downloads-svg]: https://ruby-gem-downloads-badge.herokuapp.com/renc?type=total&total_label=&color=brightgreen
