@@ -138,17 +138,17 @@ GitHub at https://github.com/k-ta-yamada/renc.
 This project is intended to be a safe,
 welcoming space for collaboration,
 and contributors are expected to adhere to the
-[Contributor Covenant](http://contributor-covenant.org) code of conduct.
+[Contributor Covenant](https://contributor-covenant.org) code of conduct.
 
 
 ## License
 
 The gem is available as open source
-under the terms of the [MIT License](http://opensource.org/licenses/MIT).
+under the terms of the [MIT License](https://opensource.org/licenses/MIT).
 
 
 
-[gem_version]: http://badge.fury.io/rb/renc
+[gem_version]: https://badge.fury.io/rb/renc
 [gem_version-svg]: https://badge.fury.io/rb/renc.svg
 [travis]: https://travis-ci.org/k-ta-yamada/renc
 [travis-svg]: https://travis-ci.org/k-ta-yamada/renc.svg
@@ -156,5 +156,5 @@ under the terms of the [MIT License](http://opensource.org/licenses/MIT).
 [codeclimate-svg]: https://codeclimate.com/github/k-ta-yamada/renc/badges/gpa.svg
 [codeclimate_cov]: https://codeclimate.com/github/k-ta-yamada/renc/coverage
 [codeclimate_cov-svg]: https://codeclimate.com/github/k-ta-yamada/renc/badges/coverage.svg
-[inch-ci]: http://inch-ci.org/github/k-ta-yamada/renc
-[inch-ci-svg]: http://inch-ci.org/github/k-ta-yamada/renc.svg?branch=master
+[inch-ci]: https://inch-ci.org/github/k-ta-yamada/renc
+[inch-ci-svg]: https://inch-ci.org/github/k-ta-yamada/renc.svg?branch=master
