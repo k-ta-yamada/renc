@@ -54,7 +54,7 @@ module Renc
 
   def _renc(obj)
     case obj
-    when String then obj.encode(@encoding, @options)
+    when String then obj.encode(@encoding, **@options)
     when Hash   then _hash(obj)
     when Array  then _array(obj)
     when Struct then _struct(obj)
