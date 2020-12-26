@@ -1,7 +1,6 @@
-require 'codeclimate-test-reporter'
+require 'simplecov'
 require 'simplecov-console'
-formatter = [CodeClimate::TestReporter::Formatter,
-             SimpleCov::Formatter::Console,
+formatter = [SimpleCov::Formatter::Console,
              SimpleCov::Formatter::HTMLFormatter]
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new(formatter)
 SimpleCov.start
@@ -10,8 +9,7 @@ $LOAD_PATH.unshift File.expand_path('../lib', __dir__)
 require 'renc'
 
 require 'pry'
-# require 'pry-doc' # Failed, saying: ruby/2.5.0 isn't supported by this pry-doc version
-# require 'pry-doc'
+require 'pry-doc'
 require 'pry-theme'
 require 'awesome_print'
 
