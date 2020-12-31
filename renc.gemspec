@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ['k-ta-yamada']
   spec.email         = ['key.luvless@gmail.com']
 
-  spec.required_ruby_version = '>= 2.0.0'
+  spec.required_ruby_version = '>= 2.5.0'
 
   spec.summary       = 'recursive encode for Hash and Array.'
   spec.description   = 'recursive encode for Hash and Array.'
@@ -24,6 +24,8 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'bundler'
   spec.add_development_dependency 'rake'
   spec.add_development_dependency 'rspec'
+  spec.add_development_dependency 'simplecov'
+  spec.add_development_dependency 'simplecov-console'
 
   spec.add_development_dependency 'pry'
   spec.add_development_dependency 'pry-doc'
