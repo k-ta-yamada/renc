@@ -151,8 +151,8 @@ under the terms of the [MIT License](https://opensource.org/licenses/MIT).
 
 [gem_version]: https://badge.fury.io/rb/renc
 [gem_version-svg]: https://badge.fury.io/rb/renc.svg
-[travis]: https://travis-ci.org/k-ta-yamada/renc
-[travis-svg]: https://travis-ci.org/k-ta-yamada/renc.svg
+[travis]: https://travis-ci.com/k-ta-yamada/renc
+[travis-svg]: https://travis-ci.com/k-ta-yamada/renc.svg
 [codeclimate]: https://codeclimate.com/github/k-ta-yamada/renc
 [codeclimate-svg]: https://codeclimate.com/github/k-ta-yamada/renc/badges/gpa.svg
 [codeclimate_cov]: https://codeclimate.com/github/k-ta-yamada/renc/coverage
