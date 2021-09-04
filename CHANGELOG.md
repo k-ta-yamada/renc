@@ -1,5 +1,11 @@
 # CHANGELOG.md
 
+## v2.2.2
+
+2021-09-04 JST
+
+- required_ruby_version change to `>= 2.6.0` because Ruby 2.5 reaches EOL.
+
 ## v2.2.1
 
 2020-12-31 JST
