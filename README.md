@@ -1,3 +1,5 @@
+# Renc
+
 [![Gem Version][gem_version-svg]][gem_version]
 [![Build Status][travis-svg]][travis]
 [![Downloads][downloads-svg]][gem_version]
@@ -5,12 +7,26 @@
 [![Code Climate][codeclimate-svg]][codeclimate]
 [![Test Coverage][codeclimate_cov-svg]][codeclimate_cov]
 
-# Renc
-
 recursive encode for Hash and Array.
 
+<!-- TOC -->
 
-## Installation
+- [1. Installation](#1-installation)
+- [2. Usage](#2-usage)
+  - [2.1. Basic](#21-basic)
+  - [2.2. Nested Hash and Array](#22-nested-hash-and-array)
+  - [2.3. Configuration](#23-configuration)
+    - [2.3.1. Renc.default_encoding](#231-rencdefault_encoding)
+    - [2.3.2. Renc.default_options](#232-rencdefault_options)
+- [3. Development](#3-development)
+- [4. Contributing](#4-contributing)
+- [5. License](#5-license)
+
+<!-- /TOC -->
+
+---
+
+## 1. Installation
 
 Add this line to your application's Gemfile:
 
@@ -20,16 +36,21 @@ gem 'renc'
 
 And then execute:
 
-    $ bundle
+```sh
+bundle
+```
 
 Or install it yourself as:
 
-    $ gem install renc
+```sh
+gem install renc
+```
 
+---
 
-## Usage
+## 2. Usage
 
-### Basic
+### 2.1. Basic
 
 ```ruby
 require 'renc'
@@ -53,7 +74,8 @@ hash_val.renc[:a].encoding # => #<Encoding::UTF-8>
 hash_val.renc == hash_val  # => true
 ```
 
-### Nested Hash and Array.
+### 2.2. Nested Hash and Array
+
 > @ref [./spec/spec_helper.rb](https://github.com/k-ta-yamada/renc/blob/master/spec/spec_helper.rb#L18)
 
 ```ruby
@@ -83,9 +105,9 @@ encoded_string_values.select! { |v| v.is_a?(String) } # => ["a", "bb0"]
 encoded_string_values.all? { |v| v.encoding == Encoding::UTF_8 } # => true
 ```
 
-### Configuration
+### 2.3. Configuration
 
-#### Renc.default_encoding
+#### 2.3.1. Renc.default_encoding
 
 ```ruby
 # default configure encoding is Encoding.default_external
@@ -101,7 +123,7 @@ Renc.default_encoding = Encoding::ASCII
 'test'.renc(Encoding::ASCII).encoding # => #<Encoding:US-ASCII>
 ```
 
-#### Renc.default_options
+#### 2.3.2. Renc.default_options
 
 ```ruby
 # default configure options is { undef: :replace }
@@ -116,8 +138,9 @@ Renc.default_options = { undef: nil }
 '🐘'.renc(Encoding::ASCII, undef: nil).encoding # => Encoding::UndefinedConversionError: U+1F418 from UTF-8 to US-ASCII
 ```
 
+---
 
-## Development
+## 3. Development
 
 After checking out the repo, run `bin/setup` to install dependencies.
 Then, run `rake spec` to run the tests.
@@ -131,8 +154,9 @@ which will create a git tag for the version,
 push git commits and tags,
 and push the `.gem` file to [rubygems.org](https://rubygems.org).
 
+---
 
-## Contributing
+## 4. Contributing
 
 Bug reports and pull requests are welcome on
 GitHub at https://github.com/k-ta-yamada/renc.
@@ -141,18 +165,21 @@ welcoming space for collaboration,
 and contributors are expected to adhere to the
 [Contributor Covenant](https://contributor-covenant.org) code of conduct.
 
+---
 
-## License
+## 5. License
 
 The gem is available as open source
 under the terms of the [MIT License](https://opensource.org/licenses/MIT).
 
+---
 
+eof
 
 [gem_version]: https://badge.fury.io/rb/renc
 [gem_version-svg]: https://badge.fury.io/rb/renc.svg
-[travis]: https://travis-ci.com/k-ta-yamada/renc
-[travis-svg]: https://travis-ci.com/k-ta-yamada/renc.svg
+[travis]: https://app.travis-ci.com/k-ta-yamada/renc
+[travis-svg]: https://app.travis-ci.com/k-ta-yamada/renc.svg?branch=master
 [codeclimate]: https://codeclimate.com/github/k-ta-yamada/renc
 [codeclimate-svg]: https://codeclimate.com/github/k-ta-yamada/renc/badges/gpa.svg
 [codeclimate_cov]: https://codeclimate.com/github/k-ta-yamada/renc/coverage
