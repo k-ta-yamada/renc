@@ -1,7 +1,7 @@
 # Renc
 
 [![Gem Version][gem_version-svg]][gem_version]
-[![Build Status][travis-svg]][travis]
+[![Ruby][github-actions-svg]][github-actions]
 [![Downloads][downloads-svg]][gem_version]
 [![Inline docs][inch-ci-svg]][inch-ci]
 [![Code Climate][codeclimate-svg]][codeclimate]
@@ -178,8 +178,8 @@ eof
 
 [gem_version]: https://badge.fury.io/rb/renc
 [gem_version-svg]: https://badge.fury.io/rb/renc.svg
-[travis]: https://app.travis-ci.com/k-ta-yamada/renc
-[travis-svg]: https://app.travis-ci.com/k-ta-yamada/renc.svg?branch=master
+[github-actions]: https://github.com/k-ta-yamada/renc/actions/workflows/ruby.yml
+[github-actions-svg]: https://github.com/k-ta-yamada/renc/actions/workflows/ruby.yml/badge.svg
 [codeclimate]: https://codeclimate.com/github/k-ta-yamada/renc
 [codeclimate-svg]: https://codeclimate.com/github/k-ta-yamada/renc/badges/gpa.svg
 [codeclimate_cov]: https://codeclimate.com/github/k-ta-yamada/renc/coverage
